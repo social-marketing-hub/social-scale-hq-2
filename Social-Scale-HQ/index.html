@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Scale HQ ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #1A0812;
+    --bg2:       #220F19;
+    --surface:   #2D1322;
+    --surface2:  #3A1A2D;
+    --surface3:  #461F37;
+    --border:    #5C2443;
+    --border-strong: #7A3059;
+    --text:      #FFE4F0;
+    --text-2:    #D4A0BA;
+    --text-3:    #8F5A72;
+    --primary:   #FF2D78;
+    --primary-2: #FF6FA3;
+    --primary-dim:#80163C;
+    --primary-glow: rgba(255,45,120,0.18);
+    --primary-light: rgba(255,45,120,0.12);
+    --rose:      #FF4D8D;
+    --lavender:  #D966B0;
+    --hot:       #FF0055;
+    --peach:     #FF8FA3;
+    --mint:      #2ECC9A;
+    --mint-light: rgba(46,204,154,0.15);
+    --amber:     #F5B731;
+    --amber-light: rgba(245,183,49,0.15);
+    --red:       #FF4466;
+    --red-light:  rgba(255,68,102,0.15);
+    --ig:        #FF2D78;
+    --ig-light:  rgba(255,45,120,0.15);
+    --fb:        #4D8FFF;
+    --fb-light:  rgba(77,143,255,0.15);
+    --tt:        #F0C0D8;
+    --tt-light:  rgba(240,192,216,0.1);
+    --yt:        #FF4455;
+    --yt-light:  rgba(255,68,85,0.15);
+    --pin:       #FF2233;
+    --pin-light: rgba(255,34,51,0.15);
+    --shadow-sm: 0 2px 12px rgba(255,45,120,0.1);
+    --shadow:    0 6px 24px rgba(255,45,120,0.18);
+    --shadow-lg: 0 16px 48px rgba(255,45,120,0.25);
+    --radius:    14px;
+    --radius-sm: 9px;
+    --radius-lg: 22px;
+    --radius-pill: 999px;
+    --grad: linear-gradient(135deg, var(--primary), var(--lavender));
+    --grad-subtle: linear-gradient(135deg, var(--surface2), var(--surface3));
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse 70% 50% at 85% -5%, rgba(255,45,120,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 5% 95%, rgba(217,102,176,0.08) 0%, transparent 55%);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    font-size: 14px;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg2); }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+  /* ── HEADER ── */
+  .header {
+    background: rgba(26,8,18,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 24px rgba(255,45,120,0.12);
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--text);
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--grad);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 14px rgba(255,45,120,0.45);
+  }
+
+  .logo em { color: var(--primary); font-style: italic; }
+
+  .header-right { display: flex; align-items: center; gap: 0.75rem; }
+
+  .header-badge {
+    background: var(--primary-light);
+    border: 1px solid var(--border-strong);
+    color: var(--primary-2);
+    font-size: 0.71rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.03em;
+  }
+
+  .ppill { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; }
+  .platform-pills { display: flex; gap: 0.3rem; }
+
+  /* ── LAYOUT ── */
+  .layout { display: flex; min-height: calc(100vh - 62px); }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 224px; min-width: 224px;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    padding: 1.25rem 0.8rem;
+    position: sticky;
+    top: 62px;
+    height: calc(100vh - 62px);
+    overflow-y: auto;
+  }
+
+  .sidebar-label {
+    font-size: 0.59rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding: 0 0.6rem;
+    margin: 1.1rem 0 0.4rem;
+  }
+  .sidebar-label:first-child { margin-top: 0; }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 0.55rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--text-2);
+    border: none; background: none;
+    width: 100%; text-align: left;
+    transition: all 0.15s;
+  }
+  .nav-item:hover { background: var(--surface2); color: var(--text); }
+  .nav-item.active {
+    background: var(--primary-light);
+    border: 1px solid var(--border-strong);
+    color: var(--primary-2);
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1px rgba(255,45,120,0.1);
+  }
+
+  /* ── MAIN ── */
+  .main { flex: 1; padding: 2rem 2.5rem; overflow-y: auto; }
+  .panel { display: none; animation: fadeUp 0.2s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ── PANEL HEADER ── */
+  .panel-header { margin-bottom: 1.85rem; }
+  .panel-eyebrow { font-size: 0.67rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; }
+  .panel-title { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--text); line-height: 1.15; }
+  .panel-title em { color: var(--primary); font-style: italic; }
+  .panel-sub { font-size: 0.85rem; color: var(--text-2); margin-top: 0.5rem; line-height: 1.7; max-width: 600px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.35rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+  }
+  .card:hover { border-color: var(--border-strong); box-shadow: var(--shadow); transform: translateY(-2px); }
+
+  .card-grid { display: grid; gap: 1rem; }
+  .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+  .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .card-grid-4 { grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); }
+
+  .card-label { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.55rem; }
+  .card-value { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--text); line-height: 1; }
+  .card-desc { font-size: 0.81rem; color: var(--text-2); margin-top: 0.45rem; line-height: 1.65; }
+
+  /* ── KPI ROW ── */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+  }
+  .kpi:hover { border-color: var(--border-strong); box-shadow: var(--shadow); transform: translateY(-2px); }
+  .kpi::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+  .kpi-ig::before { background: var(--grad); }
+  .kpi-fb::before { background: linear-gradient(90deg, #4D8FFF, #60AFFF); }
+  .kpi-tt::before { background: linear-gradient(90deg, #F0C0D8, #fff); }
+  .kpi-yt::before { background: linear-gradient(90deg, #FF4455, #FF8899); }
+  .kpi-pin::before { background: linear-gradient(90deg, #FF2233, #FF6677); }
+  .kpi-label { font-size: 0.61rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.4rem; }
+  .kpi-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--text); line-height: 1; }
+  .kpi-note { font-size: 0.7rem; color: var(--text-3); margin-top: 0.2rem; }
+  .kpi-change { font-size: 0.7rem; font-weight: 700; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.2rem; padding: 2px 8px; border-radius: var(--radius-pill); }
+  .kpi-change.up { background: var(--mint-light); color: var(--mint); }
+  .kpi-change.flat { background: var(--amber-light); color: var(--amber); }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 2.25rem; }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── ALERT BOX ── */
+  .alert-box {
+    background: var(--primary-light);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 0.95rem 1.35rem;
+    font-size: 0.84rem; line-height: 1.7;
+    color: var(--text-2);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .alert-box strong { color: var(--primary-2); }
+  .alert-green { background: var(--mint-light); border-color: rgba(46,204,154,0.3); }
+  .alert-green strong { color: var(--mint); }
+  .alert-amber { background: var(--amber-light); border-color: rgba(245,183,49,0.3); }
+  .alert-amber strong { color: var(--amber); }
+
+  /* ── INSIGHT ── */
+  .insight {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.82rem; line-height: 1.65;
+    color: var(--text-2);
+    box-shadow: var(--shadow-sm);
+  }
+  .insight strong { color: var(--text); }
+  .insight.ig-ins { border-left-color: var(--ig); }
+  .insight.fb-ins { border-left-color: var(--fb); }
+  .insight.tt-ins { border-left-color: var(--lavender); }
+  .insight.yt-ins { border-left-color: var(--yt); }
+  .insight.pin-ins { border-left-color: var(--pin); }
+
+  /* ── TABLE ── */
+  .table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .table th { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); background: var(--surface2); }
+  .table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-2); vertical-align: top; }
+  .table tr:last-child td { border-bottom: none; }
+  .table tbody tr:hover td { background: var(--surface2); color: var(--text); }
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+
+  /* ── BADGES ── */
+  .badge { display: inline-flex; align-items: center; gap: 0.2rem; padding: 3px 10px; border-radius: var(--radius-pill); font-size: 0.67rem; font-weight: 700; }
+  .badge-pink   { background: var(--primary-light); color: var(--primary-2); border: 1px solid var(--border-strong); }
+  .badge-lavender { background: rgba(217,102,176,0.15); color: var(--lavender); border: 1px solid rgba(217,102,176,0.3); }
+  .badge-peach  { background: rgba(255,143,163,0.15); color: var(--peach); border: 1px solid rgba(255,143,163,0.3); }
+  .badge-mint   { background: var(--mint-light); color: var(--mint); border: 1px solid rgba(46,204,154,0.3); }
+  .badge-amber  { background: var(--amber-light); color: var(--amber); border: 1px solid rgba(245,183,49,0.3); }
+  .badge-gray   { background: var(--surface2); color: var(--text-2); border: 1px solid var(--border); }
+  .badge-ig  { background: var(--ig-light); color: #FF6FA3; }
+  .badge-fb  { background: var(--fb-light); color: #7AAEFF; }
+  .badge-tt  { background: var(--tt-light); color: var(--tt); }
+  .badge-yt  { background: var(--yt-light); color: #FF8899; }
+  .badge-pin { background: var(--pin-light); color: #FF6677; }
+
+  /* ── PLATFORM PILLS ── */
+  .platform-row { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+  .pb { display: flex; align-items: center; gap: 0.2rem; padding: 2px 8px; border-radius: 5px; font-size: 0.69rem; font-weight: 700; }
+  .pb-ig { background: var(--ig-light); color: #FF6FA3; }
+  .pb-fb { background: var(--fb-light); color: #7AAEFF; }
+  .pb-tt { background: var(--tt-light); color: var(--tt); }
+  .pb-yt { background: var(--yt-light); color: #FF8899; }
+  .pb-pin { background: var(--pin-light); color: #FF6677; }
+
+  /* ── PROGRESS ── */
+  .prog-bar { height: 6px; background: var(--surface3); border-radius: var(--radius-pill); overflow: hidden; margin-top: 0.4rem; }
+  .prog-fill { height: 100%; border-radius: var(--radius-pill); transition: width 0.8s ease; }
+
+  /* ── TABS ── */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tab { padding: 0.6rem 1.2rem; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--text-3); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; white-space: nowrap; }
+  .tab:hover { color: var(--primary-2); }
+  .tab.active { color: var(--primary-2); border-bottom-color: var(--primary); font-weight: 700; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; }
+  .checklist li { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.81rem; line-height: 1.55; color: var(--text-2); }
+  .checklist li:last-child { border-bottom: none; }
+  .check-icon { color: var(--primary); flex-shrink: 0; margin-top: 1px; }
+
+  /* ── CALENDAR ── */
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; }
+  .cal-day-header { font-size: 0.61rem; font-weight: 800; text-align: center; color: var(--text-3); padding: 0.3rem 0; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cal-day { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.55rem 0.45rem; min-height: 90px; transition: all 0.18s; }
+  .cal-day:hover { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+  .cal-num { font-size: 0.62rem; font-weight: 700; color: var(--text-3); margin-bottom: 0.35rem; }
+  .cal-tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.56rem; font-weight: 700; margin: 1px 0; line-height: 1.4; }
+  .tag-ig  { background: var(--ig-light); color: #FF6FA3; }
+  .tag-fb  { background: var(--fb-light); color: #7AAEFF; }
+  .tag-tt  { background: var(--tt-light); color: var(--tt); }
+  .tag-yt  { background: var(--yt-light); color: #FF8899; }
+  .tag-pin { background: var(--pin-light); color: #FF6677; }
+
+  /* ── CHANNEL CHIPS ── */
+  .channel-chip {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.38rem 0.9rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer; font-size: 0.77rem; font-weight: 600;
+    color: var(--text-2);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .channel-chip:hover { border-color: var(--border-strong); color: var(--text); }
+  .channel-chip.sel-ig  { border-color: var(--ig); background: var(--ig-light); color: #FF6FA3; }
+  .channel-chip.sel-fb  { border-color: var(--fb); background: var(--fb-light); color: #7AAEFF; }
+  .channel-chip.sel-tt  { border-color: #A0708A; background: var(--tt-light); color: var(--tt); }
+  .channel-chip.sel-yt  { border-color: var(--yt); background: var(--yt-light); color: #FF8899; }
+  .channel-chip.sel-pin { border-color: var(--pin); background: var(--pin-light); color: #FF6677; }
+  .channel-chip.sel-primary { border-color: var(--primary); background: var(--primary-light); color: var(--primary-2); }
+
+  /* ── FORM FIELDS ── */
+  .field-label { display: block; font-size: 0.68rem; font-weight: 700; color: var(--text-2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.42rem; }
+  .field-input, .field-select, .field-textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.87rem;
+    padding: 0.68rem 0.95rem;
+    outline: none;
+    transition: all 0.18s;
+  }
+  .field-input::placeholder, .field-textarea::placeholder { color: var(--text-3); }
+  .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
+  .field-select option { background: var(--surface2); color: var(--text); }
+  .field-textarea { resize: vertical; min-height: 88px; line-height: 1.65; }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--grad);
+    color: white;
+    border: none;
+    border-radius: var(--radius-pill);
+    padding: 0.72rem 2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.87rem; font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    box-shadow: 0 4px 18px rgba(255,45,120,0.38);
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,45,120,0.5); filter: brightness(1.08); }
+  .btn-primary:disabled { background: var(--surface3); color: var(--text-3); cursor: not-allowed; transform: none; box-shadow: none; filter: none; }
+
+  .btn-secondary {
+    background: var(--surface2);
+    color: var(--text-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: 0.6rem 1.35rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--border-strong); color: var(--text); background: var(--surface3); }
+
+  /* ── CONTENT BLOCKS ── */
+  .content-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.2s; }
+  .content-block:hover { box-shadow: var(--shadow); border-color: var(--border-strong); }
+  .content-block-header { display: flex; align-items: center; justify-content: space-between; padding: 0.88rem 1.2rem; border-bottom: 1px solid var(--border); background: var(--surface2); flex-wrap: wrap; gap: 0.5rem; }
+  .content-block-label { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.87rem; color: var(--text); }
+  .content-block-body { padding: 1.1rem 1.25rem; font-size: 0.83rem; line-height: 1.85; color: var(--text-2); white-space: pre-wrap; word-break: break-word; }
+
+  .copy-btn { padding: 4px 14px; background: var(--primary-light); border: 1px solid var(--border-strong); color: var(--primary-2); border-radius: var(--radius-pill); font-size: 0.71rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .copy-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+  /* ── PILLAR CARDS ── */
+  .pillar { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.45rem; position: relative; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.2s; }
+  .pillar::after { content:''; position:absolute; top:-25px; right:-25px; width:90px; height:90px; border-radius:50%; background: var(--primary); opacity:0.04; }
+  .pillar:hover { box-shadow: var(--shadow); border-color: var(--border-strong); transform: translateY(-2px); }
+  .pillar-num { font-family: 'DM Serif Display', serif; font-size: 4.5rem; position: absolute; right: 1rem; top: 0.5rem; color: var(--surface3); line-height: 1; pointer-events: none; }
+  .pillar-name { font-weight: 800; font-size: 0.94rem; color: var(--text); margin-bottom: 0.5rem; }
+  .pillar-desc { font-size: 0.8rem; color: var(--text-2); line-height: 1.7; }
+
+  /* ── ROADMAP ── */
+  .roadmap-step { display: flex; gap: 1rem; padding: 1.1rem 1.35rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.75rem; box-shadow: var(--shadow-sm); transition: all 0.2s; }
+  .roadmap-step:hover { box-shadow: var(--shadow); border-color: var(--border-strong); transform: translateY(-1px); }
+  .step-num { width: 34px; height: 34px; border-radius: 50%; background: var(--grad); color: white; font-weight: 800; font-size: 0.81rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; box-shadow: 0 4px 12px rgba(255,45,120,0.35); }
+  .step-title { font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 0.35rem; }
+  .step-desc { font-size: 0.79rem; color: var(--text-2); line-height: 1.65; }
+
+  /* ── HEALTH INPUTS ── */
+  .health-kpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem; transition: all 0.18s; box-shadow: var(--shadow-sm); }
+  .health-kpi:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
+  .health-kpi-label { font-size: 0.59rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.4rem; }
+  .health-kpi-input { background: transparent; border: none; outline: none; font-family: 'DM Serif Display', serif; font-size: 1.7rem; color: var(--text); width: 100%; line-height: 1; }
+  .health-kpi-input::placeholder { color: var(--surface3); }
+  .health-kpi-sub { font-size: 0.69rem; color: var(--text-3); margin-top: 0.2rem; }
+
+  .health-bar-wrap { margin-bottom: 1rem; }
+  .health-bar-label { display: flex; justify-content: space-between; font-size: 0.77rem; color: var(--text-2); margin-bottom: 0.3rem; }
+  .health-bar-label span:last-child { font-weight: 700; color: var(--text); }
+  .health-bar { height: 6px; background: var(--surface3); border-radius: var(--radius-pill); overflow: hidden; }
+  .health-bar-fill { height: 100%; border-radius: var(--radius-pill); transition: width 0.8s ease; }
+
+  /* ── LOADING ── */
+  @keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+  @keyframes dotBounce { 0%,60%,100% { transform:translateY(0); opacity:0.3; } 30% { transform:translateY(-7px); opacity:1; } }
+  .loading-dots { display: inline-flex; gap: 5px; margin-top: 0.75rem; }
+  .loading-dots span { width: 8px; height: 8px; background: var(--grad); border-radius: 50%; animation: dotBounce 1.2s infinite; }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 1rem; }
+    .cal-grid { grid-template-columns: repeat(3,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">🌸</div>
+    Social<em>Scale</em> HQ
+  </div>
+  <div class="header-right">
+    <div class="platform-pills">
+      <div class="ppill" style="background:var(--ig-light);color:#FF6FA3">IG</div>
+      <div class="ppill" style="background:var(--fb-light);color:#7AAEFF">FB</div>
+      <div class="ppill" style="background:var(--tt-light);color:var(--tt)">TT</div>
+      <div class="ppill" style="background:var(--yt-light);color:#FF8899">YT</div>
+      <div class="ppill" style="background:var(--pin-light);color:#FF6677">P</div>
+    </div>
+    <div class="header-badge">✨ 5-Platform Growth OS</div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="sidebar-label">✦ Dashboard</div>
+    <button class="nav-item active" onclick="showPanel('overview')">🏠 Overview</button>
+    <button class="nav-item" onclick="showPanel('strategy')">🗺️ Growth Roadmap</button>
+
+    <div class="sidebar-label">✦ Content</div>
+    <button class="nav-item" onclick="showPanel('calendar')">🗓 Content Calendar</button>
+    <button class="nav-item" onclick="showPanel('pillars')">🧱 Content Pillars</button>
+    <button class="nav-item" onclick="showPanel('ideas')">💡 Idea Bank</button>
+
+    <div class="sidebar-label">✦ Platforms</div>
+    <button class="nav-item" onclick="showPanel('instagram')"><span style="color:#FF6FA3">📸</span> Instagram</button>
+    <button class="nav-item" onclick="showPanel('facebook')"><span style="color:#7AAEFF">👥</span> Facebook</button>
+    <button class="nav-item" onclick="showPanel('tiktok')">🎵 TikTok</button>
+    <button class="nav-item" onclick="showPanel('youtube')"><span style="color:#FF8899">▶️</span> YouTube</button>
+    <button class="nav-item" onclick="showPanel('pinterest')"><span style="color:#FF6677">📌</span> Pinterest</button>
+
+    <div class="sidebar-label">✦ Tools</div>
+    <button class="nav-item" onclick="showPanel('generator')" style="background:var(--primary-light);border:1px solid var(--border-strong);color:var(--primary-2);font-weight:700;">✨ AI Generator</button>
+    <button class="nav-item" onclick="showPanel('health')">💗 Account Health</button>
+    <button class="nav-item" onclick="showPanel('repurpose')">♻️ Repurpose Engine</button>
+    <button class="nav-item" onclick="showPanel('trends')">📈 Trend Tracker</button>
+  </nav>
+
+  <main class="main">
+
+    <!-- ══ OVERVIEW ══ -->
+    <div id="overview" class="panel active">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Welcome back, girl</div>
+        <div class="panel-title">Your Growth <em>Command Center</em> 🌸</div>
+        <div class="panel-sub">Everything you need to plan, create, post, and scale across Instagram, Facebook, TikTok, YouTube & Pinterest — in one gorgeous place.</div>
+      </div>
+      <div class="alert-box">
+        <strong>Hey babe 👋</strong> This is your end-to-end OS for growing a multi-platform social presence. Navigate via the sidebar for strategies, content playbooks, an AI content generator, and your weekly analytics tracker. You've got this. 💪✨
+      </div>
+      <div class="kpi-row">
+        <div class="kpi kpi-ig"><div class="kpi-label">Instagram</div><div class="kpi-num">IG</div><div class="kpi-note">Reels-first</div><div class="kpi-change up">↑ Priority 1</div></div>
+        <div class="kpi kpi-fb"><div class="kpi-label">Facebook</div><div class="kpi-num">FB</div><div class="kpi-note">Community & ads</div><div class="kpi-change flat">→ Priority 2</div></div>
+        <div class="kpi kpi-tt"><div class="kpi-label">TikTok</div><div class="kpi-num">TT</div><div class="kpi-note">Viral discovery</div><div class="kpi-change up">↑ Priority 2</div></div>
+        <div class="kpi kpi-yt"><div class="kpi-label">YouTube</div><div class="kpi-num">YT</div><div class="kpi-note">Long-form authority</div><div class="kpi-change flat">→ Priority 3</div></div>
+        <div class="kpi kpi-pin"><div class="kpi-label">Pinterest</div><div class="kpi-num">P</div><div class="kpi-note">Evergreen SEO</div><div class="kpi-change up">↑ Underrated</div></div>
+      </div>
+      <div class="section">
+        <div class="section-title">🌷 The 5-Platform Growth System</div>
+        <div class="card-grid card-grid-2">
+          <div class="card"><div class="card-label">✨ Content Engine</div><div class="card-desc">A weekly system built around one anchor piece of content that gets repurposed across all 5 platforms. Create once, distribute everywhere — without burning out.</div></div>
+          <div class="card"><div class="card-label">💫 Platform Roles</div><div class="card-desc">Each platform has a distinct job: IG for discovery, FB for community, TikTok for viral reach, YouTube for deep authority, Pinterest for evergreen traffic. Don't treat them the same.</div></div>
+          <div class="card"><div class="card-label">🚀 Scaling Levers</div><div class="card-desc">Grow by increasing posting frequency, improving hooks, A/B testing formats, engaging with niche communities, collabs, and converting followers to email subscribers.</div></div>
+          <div class="card"><div class="card-label">📊 Analytics Loop</div><div class="card-desc">Weekly health checks on all 5 platforms. Double down on what's working, cut what isn't. Your growth compounds when you analyze and iterate every 7 days.</div></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">🎀 Growth Phases — Your Journey</div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Phase</th><th>Follower Goal</th><th>Focus</th><th>Platforms</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge badge-gray">Foundation</span></td><td>0 → 1K</td><td>Niche clarity, consistent posting, profile optimization, first 100 posts</td><td><div class="platform-row"><span class="pb pb-ig">IG</span><span class="pb pb-tt">TikTok</span></div></td></tr>
+              <tr><td><span class="badge badge-lavender">Growth</span></td><td>1K → 10K</td><td>Reels & short-form volume, collab strategy, hashtag refinement</td><td><div class="platform-row"><span class="pb pb-ig">IG</span><span class="pb pb-tt">TikTok</span><span class="pb pb-pin">Pinterest</span></div></td></tr>
+              <tr><td><span class="badge badge-peach">Scale</span></td><td>10K → 50K</td><td>Repurpose system, long-form content, FB ads, YouTube authority</td><td><div class="platform-row"><span class="pb pb-ig">IG</span><span class="pb pb-yt">YouTube</span><span class="pb pb-fb">Facebook</span></div></td></tr>
+              <tr><td><span class="badge badge-pink">Authority ✨</span></td><td>50K+</td><td>Brand deals, paid strategy, community ownership, newsletter</td><td><div class="platform-row"><span class="pb pb-ig">IG</span><span class="pb pb-yt">YT</span><span class="pb pb-fb">FB</span><span class="pb pb-pin">P</span></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ GROWTH STRATEGY ══ -->
+    <div id="strategy" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Step by step</div>
+        <div class="panel-title">The <em>Scale Roadmap</em> 🗺️</div>
+        <div class="panel-sub">10 steps to grow from zero to authority across all 5 platforms — in the right order, without overwhelm.</div>
+      </div>
+      <div class="roadmap-step"><div class="step-num">1</div><div class="step-content"><div class="step-title">Lock in your niche & ideal audience 🎯</div><div class="step-desc">Before a single post: define exactly WHO you serve, WHAT problem you solve, and WHY you're the one to solve it. One sentence: "I help [who] achieve [what] by [how]."</div></div></div>
+      <div class="roadmap-step"><div class="step-num">2</div><div class="step-content"><div class="step-title">Optimize all 5 profiles with one consistent identity ✨</div><div class="step-desc">Same profile photo, username (or close variant), bio formula: Hook + credibility + niche + CTA. Every profile should pass the "3-second test."</div></div></div>
+      <div class="roadmap-step"><div class="step-num">3</div><div class="step-content"><div class="step-title">Build your 3–5 content pillars 🧱</div><div class="step-desc">Every post falls under one of 3–5 pillars. This creates the consistency algorithms love and audiences can predict. Go to the Pillars tab to build yours.</div></div></div>
+      <div class="roadmap-step"><div class="step-num">4</div><div class="step-content"><div class="step-title">Master one short-form platform first 💅</div><div class="step-desc">Go all-in on IG Reels or TikTok for 30 days. Post daily. Study analytics. Find your top 3 performing formats. Then replicate and cross-post.</div></div></div>
+      <div class="roadmap-step"><div class="step-num">5</div><div class="step-content"><div class="step-title">Build a repurpose system around one anchor piece ♻️</div><div class="step-desc">One YouTube video or long-form carousel per week → 1 IG Reel + 1 TikTok + 1 FB post + 3 Pinterest pins + Stories. One piece = 7–10 posts.</div></div></div>
+      <div class="roadmap-step"><div class="step-num">6</div><div class="step-content"><div class="step-title">Obsess over hooks — your #1 growth lever 🎣</div><div class="step-desc">70% of your growth comes from hooks. The first 1–3 seconds determines if 1K or 100K people see your content. Test 3 hook styles weekly.</div></div></div>
+      <div class="roadmap-step"><div class="step-num">7</div><div class="step-content"><div class="step-title">Collab & community growth phase 🤝</div><div class="step-desc">At 1K+: IG Collab posts, TikTok Duets & Stitches, YouTube collabs, Pinterest group boards. Each collab exposes you to a warm new audience instantly.</div></div></div>
+      <div class="roadmap-step"><div class="step-num">8</div><div class="step-content"><div class="step-title">Add Pinterest as your evergreen SEO engine 📌</div><div class="step-desc">Pinterest pins gain traffic for months and years. Set up keyword-optimized boards, pin 10–15/day, and link all pins to your website or email opt-in.</div></div></div>
+      <div class="roadmap-step"><div class="step-num">9</div><div class="step-content"><div class="step-title">Build YouTube as your authority anchor 👑</div><div class="step-desc">At 5K+ short-form followers, launch YouTube with long-form pillar videos. These rank on Google for years and turn viewers into true fans.</div></div></div>
+      <div class="roadmap-step"><div class="step-num">10</div><div class="step-content"><div class="step-title">Convert followers to email subscribers 💌</div><div class="step-desc">Followers are rented. Email is owned. Drive people to a lead magnet at every growth phase. Your email list converts 10–40x better than social DMs.</div></div></div>
+    </div>
+
+    <!-- ══ CALENDAR ══ -->
+    <div id="calendar" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Stay consistent, bb</div>
+        <div class="panel-title">Content <em>Calendar</em> 🗓</div>
+        <div class="panel-sub">The model week for running all 5 platforms sustainably — without the burnout.</div>
+      </div>
+      <div class="alert-box alert-amber"><strong>🍑 Golden Rule:</strong> Batch your content creation 1–2 days per week and schedule everything. Consistency beats sporadic perfection every single time.</div>
+      <div class="section">
+        <div class="section-title">🌸 Model Week Template</div>
+        <div class="cal-grid">
+          <div class="cal-day-header">MON</div><div class="cal-day-header">TUE</div><div class="cal-day-header">WED</div><div class="cal-day-header">THU</div><div class="cal-day-header">FRI</div><div class="cal-day-header">SAT</div><div class="cal-day-header">SUN</div>
+          <div class="cal-day"><div class="cal-num">MON</div><span class="cal-tag tag-ig">IG Reel</span><br><span class="cal-tag tag-tt">TikTok</span><br><span class="cal-tag tag-pin">3× Pins</span></div>
+          <div class="cal-day"><div class="cal-num">TUE</div><span class="cal-tag tag-ig">IG Carousel</span><br><span class="cal-tag tag-fb">FB Post</span><br><span class="cal-tag tag-pin">3× Pins</span></div>
+          <div class="cal-day"><div class="cal-num">WED</div><span class="cal-tag tag-ig">IG Reel</span><br><span class="cal-tag tag-tt">TikTok</span><br><span class="cal-tag tag-yt">YT Short</span></div>
+          <div class="cal-day"><div class="cal-num">THU</div><span class="cal-tag tag-ig">IG Stories</span><br><span class="cal-tag tag-fb">FB Reel</span><br><span class="cal-tag tag-pin">3× Pins</span></div>
+          <div class="cal-day"><div class="cal-num">FRI</div><span class="cal-tag tag-ig">IG Reel</span><br><span class="cal-tag tag-tt">TikTok</span><br><span class="cal-tag tag-fb">FB Post</span></div>
+          <div class="cal-day"><div class="cal-num">SAT</div><span class="cal-tag tag-yt">YouTube</span><br><span class="cal-tag tag-ig">IG Stories</span><br><span class="cal-tag tag-pin">5× Pins</span></div>
+          <div class="cal-day"><div class="cal-num">SUN</div><span class="cal-tag tag-ig">IG Poll</span><br><span class="cal-tag tag-fb">FB Community</span><br><span class="cal-tag tag-tt">TikTok re-up</span></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">💅 Posting Frequency by Phase</div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Platform</th><th>0–1K</th><th>1K–10K</th><th>10K+</th><th>Content Types</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge badge-ig">📸 Instagram</span></td><td>1 Reel/day</td><td>1 Reel + 3 Stories/day</td><td>1 Reel + Stories + Carousel/day</td><td>Reels, Carousels, Stories, Lives</td></tr>
+              <tr><td><span class="badge badge-fb">👥 Facebook</span></td><td>3×/week</td><td>5×/week</td><td>Daily + paid boosting</td><td>Posts, Reels, Groups, Events</td></tr>
+              <tr><td><span class="badge badge-tt">🎵 TikTok</span></td><td>1–2×/day</td><td>2–3×/day</td><td>2–3×/day + Lives</td><td>Videos, Duets, Stitches, Lives</td></tr>
+              <tr><td><span class="badge badge-yt">▶️ YouTube</span></td><td>1×/week (Shorts)</td><td>1 video + 2–3 Shorts/week</td><td>2 videos + 3–5 Shorts/week</td><td>Long-form, Shorts, Playlists</td></tr>
+              <tr><td><span class="badge badge-pin">📌 Pinterest</span></td><td>5–10 pins/day</td><td>10–15 pins/day</td><td>15–25 pins/day</td><td>Static, Video, Idea Pins</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PILLARS ══ -->
+    <div id="pillars" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ The foundation</div>
+        <div class="panel-title">Content <em>Pillars</em> 🧱</div>
+        <div class="panel-sub">5 universal content pillars every social manager needs — adapted to any niche.</div>
+      </div>
+      <div class="alert-box"><strong>Why pillars matter 💡</strong> Algorithms reward accounts that consistently create in specific themes. Pillars make planning fast, audience expectations clear, and posting sustainable. Pick 3–5 for your niche.</div>
+      <div class="card-grid card-grid-2 section">
+        <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">🎓 Educate & Add Value</div><div class="pillar-desc">Teach something actionable. How-tos, tips, tutorials, listicles. Builds authority and gets SAVED — the highest-value engagement signal on IG and Pinterest.</div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">😂 Entertain & Relate</div><div class="pillar-desc">Humor, relatable moments, trends, personality-driven content. Drives SHARES — highest-value on TikTok and Facebook. People share what makes them feel seen.</div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">💪 Inspire & Motivate</div><div class="pillar-desc">Transformations, behind-the-scenes journeys, aspirational content. SAVES and FOLLOWS spike when people feel "this could be me."</div></div>
+        <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">🤝 Build Community</div><div class="pillar-desc">Q&As, polls, collabs, UGC, audience spotlights. Drives COMMENTS — crucial for Facebook and IG algorithm. Community = loyalty = retention.</div></div>
+        <div class="pillar"><div class="pillar-num">05</div><div class="pillar-name">📣 Promote & Convert</div><div class="pillar-desc">Soft CTAs, product features, testimonials, offer reveals. Cap at 20% of total content. The other 4 pillars earn the right to promote.</div></div>
+      </div>
+      <div class="section">
+        <div class="section-title">🎀 Pillar → Platform Mapping</div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Pillar</th><th>Best Platform</th><th>Why</th><th>Key Metric</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Educate</strong></td><td><div class="platform-row"><span class="pb pb-ig">IG</span><span class="pb pb-pin">Pinterest</span><span class="pb pb-yt">YouTube</span></div></td><td>Carousels save well on IG; Pinterest ranks for "how to" searches; YouTube tutorials rank on Google</td><td>Saves, Watch time</td></tr>
+              <tr><td><strong>Entertain</strong></td><td><div class="platform-row"><span class="pb pb-tt">TikTok</span><span class="pb pb-fb">Facebook</span></div></td><td>Trends spread fastest on TikTok; FB shares drive organic reach for funny/emotional content</td><td>Shares, Views</td></tr>
+              <tr><td><strong>Inspire</strong></td><td><div class="platform-row"><span class="pb pb-ig">IG</span><span class="pb pb-yt">YouTube</span><span class="pb pb-pin">Pinterest</span></div></td><td>IG Reels for bite-sized inspiration; YouTube for longer transformation stories</td><td>Saves, Follows</td></tr>
+              <tr><td><strong>Community</strong></td><td><div class="platform-row"><span class="pb pb-fb">Facebook</span><span class="pb pb-ig">IG</span><span class="pb pb-tt">TikTok</span></div></td><td>FB Groups for depth; IG Stories polls; TikTok comments culture is highly interactive</td><td>Comments, DMs</td></tr>
+              <tr><td><strong>Promote</strong></td><td><div class="platform-row"><span class="pb pb-ig">IG</span><span class="pb pb-fb">Facebook</span><span class="pb pb-yt">YouTube</span></div></td><td>IG bio link + Stories; FB ads; YouTube end screens and description links</td><td>Link clicks, Sales</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ IDEAS ══ -->
+    <div id="ideas" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Never run out</div>
+        <div class="panel-title">Content <em>Idea Bank</em> 💡</div>
+        <div class="panel-sub">100+ platform-specific ideas organized by format. Pull from here whenever you're stuck.</div>
+      </div>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('ideas','short')">🎬 Short-Form</button>
+        <button class="tab" onclick="showTab('ideas','longform')">📹 Long-Form</button>
+        <button class="tab" onclick="showTab('ideas','pinterest')">📌 Pinterest</button>
+        <button class="tab" onclick="showTab('ideas','engagement')">💬 Engagement</button>
+        <button class="tab" onclick="showTab('ideas','viral')">🔥 Viral Formats</button>
+      </div>
+      <div id="ideas-short" class="tab-panel active">
+        <div class="card-grid card-grid-2">
+          <div class="card"><div class="card-label">📸 IG Reels & TikTok</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> "5 things I wish I knew before [topic]"</li>
+            <li><span class="check-icon">♡</span> Before/After transformation</li>
+            <li><span class="check-icon">♡</span> POV: day in the life of [your niche]</li>
+            <li><span class="check-icon">♡</span> "The mistake 90% of people make with [topic]"</li>
+            <li><span class="check-icon">♡</span> Trending audio + your niche twist</li>
+            <li><span class="check-icon">♡</span> Quick tutorial: do this one thing right now</li>
+            <li><span class="check-icon">♡</span> React/Duet to a viral video in your niche</li>
+            <li><span class="check-icon">♡</span> "Unpopular opinion: [hot take in your niche]"</li>
+            <li><span class="check-icon">♡</span> Get ready with me / work with me</li>
+            <li><span class="check-icon">♡</span> Tool or app review: best kept secret</li>
+          </ul></div>
+          <div class="card"><div class="card-label">🎠 IG Carousels (High Save Rate)</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> "Swipe to see [result/transformation/reveal]"</li>
+            <li><span class="check-icon">♡</span> Step-by-step guide: [X steps to Y]</li>
+            <li><span class="check-icon">♡</span> "The complete [topic] guide — save this"</li>
+            <li><span class="check-icon">♡</span> Stats/data breakdown with visuals</li>
+            <li><span class="check-icon">♡</span> "I tested [X] so you don't have to"</li>
+            <li><span class="check-icon">♡</span> Side-by-side: good vs bad example</li>
+            <li><span class="check-icon">♡</span> Resources roundup: top tools/books</li>
+            <li><span class="check-icon">♡</span> Behind the scenes: how I [create/build/grow]</li>
+          </ul></div>
+        </div>
+      </div>
+      <div id="ideas-longform" class="tab-panel">
+        <div class="card-grid card-grid-2">
+          <div class="card"><div class="card-label">▶️ YouTube Long-Form</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> "How I [achieved X] step by step"</li>
+            <li><span class="check-icon">♡</span> Case study: "I tried [strategy] for 30 days"</li>
+            <li><span class="check-icon">♡</span> Q&A with your community (10 big questions)</li>
+            <li><span class="check-icon">♡</span> Ultimate beginner's guide to [topic]</li>
+            <li><span class="check-icon">♡</span> Interview/collab with a creator in your niche</li>
+            <li><span class="check-icon">♡</span> Rank/tier list of tools or products</li>
+            <li><span class="check-icon">♡</span> Vlog: a real week behind the scenes</li>
+          </ul></div>
+          <div class="card"><div class="card-label">⚡ YouTube Shorts</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> Cut the best 60 sec from a long-form video</li>
+            <li><span class="check-icon">♡</span> One quick tip in 30 seconds</li>
+            <li><span class="check-icon">♡</span> "Wait for it" satisfying reveal format</li>
+            <li><span class="check-icon">♡</span> Repurpose your best-performing TikToks</li>
+            <li><span class="check-icon">♡</span> Mini-vlog: one moment from your day</li>
+          </ul></div>
+        </div>
+      </div>
+      <div id="ideas-pinterest" class="tab-panel">
+        <div class="alert-box alert-green" style="margin-bottom:1rem"><strong>📌 Remember:</strong> Pinterest is a search engine. Keywords matter more than trending sounds. Pin consistently for 3–6 months before expecting traffic — then it compounds forever.</div>
+        <div class="card-grid card-grid-2">
+          <div class="card"><div class="card-label">🌸 High-Converting Pin Types</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> "How to [achieve result]" — evergreen tutorials</li>
+            <li><span class="check-icon">♡</span> Step-by-step infographic with your branding</li>
+            <li><span class="check-icon">♡</span> "X ideas for [topic]" — list pins get huge saves</li>
+            <li><span class="check-icon">♡</span> Before/after visual</li>
+            <li><span class="check-icon">♡</span> Template or checklist download preview</li>
+            <li><span class="check-icon">♡</span> Repurpose IG carousels as multi-image pins</li>
+            <li><span class="check-icon">♡</span> Video pins = TikToks/Reels re-pinned</li>
+          </ul></div>
+          <div class="card"><div class="card-label">💅 Pinterest SEO Checklist</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> Pin title: primary keyword at the start</li>
+            <li><span class="check-icon">♡</span> Pin description: 100–300 words, 3–5 keywords</li>
+            <li><span class="check-icon">♡</span> Board names: keyword-rich (not creative names)</li>
+            <li><span class="check-icon">♡</span> Profile bio: include your top 2 keywords</li>
+            <li><span class="check-icon">♡</span> Use Tailwind for 10–15 pins/day scheduling</li>
+            <li><span class="check-icon">♡</span> Link every pin to a website page</li>
+          </ul></div>
+        </div>
+      </div>
+      <div id="ideas-engagement" class="tab-panel">
+        <div class="card-grid card-grid-2">
+          <div class="card"><div class="card-label">💬 Comment-Boosting Formats</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> "Drop a 🔥 if you agree"</li>
+            <li><span class="check-icon">♡</span> "Comment your [thing] and I'll rate it"</li>
+            <li><span class="check-icon">♡</span> "Which do you prefer? A or B?"</li>
+            <li><span class="check-icon">♡</span> Fill in the blank: "The best part of [topic] is ___"</li>
+            <li><span class="check-icon">♡</span> Share a hot take and ask "agree or disagree?"</li>
+            <li><span class="check-icon">♡</span> Ask for recommendations: "What's your fav [tool]?"</li>
+          </ul></div>
+          <div class="card"><div class="card-label">🌺 Community Tactics</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> Feature a follower's win (with permission)</li>
+            <li><span class="check-icon">♡</span> "DM me [word] for my free [resource]"</li>
+            <li><span class="check-icon">♡</span> Weekly recurring series (e.g. #TipTuesday)</li>
+            <li><span class="check-icon">♡</span> IG Story polls: "Are you a __ or __ person?"</li>
+            <li><span class="check-icon">♡</span> IG Story Q&A: "Ask me anything about [topic]"</li>
+            <li><span class="check-icon">♡</span> TikTok reply to comment with video</li>
+          </ul></div>
+        </div>
+      </div>
+      <div id="ideas-viral" class="tab-panel">
+        <div class="card-grid card-grid-2">
+          <div class="card"><div class="card-label">🔥 Proven Viral Formats</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> <strong>"I did [extreme thing] for 30 days"</strong></li>
+            <li><span class="check-icon">♡</span> <strong>Myth-busting</strong> — "Everyone says X, but actually Y"</li>
+            <li><span class="check-icon">♡</span> <strong>Extreme specificity</strong> — "How I got 10K in exactly 47 days"</li>
+            <li><span class="check-icon">♡</span> <strong>"Nobody is talking about this…"</strong></li>
+            <li><span class="check-icon">♡</span> <strong>Contrast hook</strong> — "Stop doing X. Do this instead."</li>
+            <li><span class="check-icon">♡</span> <strong>Vulnerable storytelling</strong> — "The truth about [struggle]"</li>
+          </ul></div>
+          <div class="card"><div class="card-label">🎣 Hook Formulas</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> "The [topic] secret no one tells you…"</li>
+            <li><span class="check-icon">♡</span> "I was today years old when I found out…"</li>
+            <li><span class="check-icon">♡</span> "This one thing changed everything for me"</li>
+            <li><span class="check-icon">♡</span> "If you do [X], stop immediately"</li>
+            <li><span class="check-icon">♡</span> "POV: you finally figured out [painful problem]"</li>
+            <li><span class="check-icon">♡</span> "Save this before it's too late"</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ INSTAGRAM ══ -->
+    <div id="instagram" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow" style="color:#FF6FA3">✦ Priority platform</div>
+        <div class="panel-title" style="color:#FF6FA3">📸 Instagram <span style="color:var(--text)">Playbook</span></div>
+        <div class="panel-sub">The complete scaling guide for Instagram — the #1 discovery platform for most niches.</div>
+      </div>
+      <div class="insight ig-ins"><strong>2025 IG Algorithm Priority:</strong> Reels reach > Carousels (saves) > Stories (daily engagement). Reels are still the primary growth lever for reaching new audiences.</div>
+      <div class="card-grid card-grid-2 section">
+        <div class="card"><div class="card-label">Profile Optimization ✨</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Username: simple, searchable, matches other platforms</li>
+          <li><span class="check-icon">♡</span> Bio: Hook (who you help) + social proof + CTA</li>
+          <li><span class="check-icon">♡</span> Link in bio → Linktree with 4–5 key links</li>
+          <li><span class="check-icon">♡</span> Story Highlights: Intro | Best Posts | Services | Free Resource</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Reels Growth Strategy 🎬</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Hook in first 0–3 seconds — text overlay on screen</li>
+          <li><span class="check-icon">♡</span> Post 1 Reel/day during growth phase</li>
+          <li><span class="check-icon">♡</span> Use trending audio within 72 hours</li>
+          <li><span class="check-icon">♡</span> Always add captions (85% watch muted)</li>
+          <li><span class="check-icon">♡</span> End with CTA: "Follow for more" or "Save this"</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Engagement Loops 💬</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Reply to EVERY comment in the first 60 minutes</li>
+          <li><span class="check-icon">♡</span> 15 min before/after posting engaging on niche accounts</li>
+          <li><span class="check-icon">♡</span> Use Stories daily to stay top of followers' feeds</li>
+          <li><span class="check-icon">♡</span> Collab posts = shared to both audiences simultaneously</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Scale Milestones 🏆</div>
+          <div style="margin-top:0.5rem">
+            <div class="health-bar-wrap"><div class="health-bar-label"><span>0 → 1K: Foundation</span><span>Profile + 60 posts</span></div><div class="health-bar"><div class="health-bar-fill" style="width:20%;background:var(--grad)"></div></div></div>
+            <div class="health-bar-wrap"><div class="health-bar-label"><span>1K → 10K: Growth</span><span>Daily Reels + collabs</span></div><div class="health-bar"><div class="health-bar-fill" style="width:45%;background:var(--grad)"></div></div></div>
+            <div class="health-bar-wrap"><div class="health-bar-label"><span>10K → 50K: Scale</span><span>Paid collabs + ads</span></div><div class="health-bar"><div class="health-bar-fill" style="width:75%;background:var(--grad)"></div></div></div>
+            <div class="health-bar-wrap"><div class="health-bar-label"><span>50K+: Authority ✨</span><span>Brand deals</span></div><div class="health-bar"><div class="health-bar-fill" style="width:95%;background:var(--grad)"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ FACEBOOK ══ -->
+    <div id="facebook" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow" style="color:#7AAEFF">✦ Community & ads powerhouse</div>
+        <div class="panel-title" style="color:#7AAEFF">👥 Facebook <span style="color:var(--text)">Playbook</span></div>
+        <div class="panel-sub">Facebook is #1 for community-building, ad retargeting, and reaching the 35–60 demographic.</div>
+      </div>
+      <div class="insight fb-ins"><strong>FB Algorithm 2025:</strong> Comments > Shares > Reactions. Ask questions. Build Groups. Repurpose Reels natively. FB Pages with active Groups get priority organic reach.</div>
+      <div class="card-grid card-grid-2 section">
+        <div class="card"><div class="card-label">Page Strategy</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Post 5× per week — mix native videos, text, Reels</li>
+          <li><span class="check-icon">♡</span> Native video gets 10× more reach than YouTube links</li>
+          <li><span class="check-icon">♡</span> Repost IG Reels natively (no watermark)</li>
+          <li><span class="check-icon">♡</span> Longer captions work better on FB — storytelling approach</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Group Strategy 🤝</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Create a free community Group around your niche</li>
+          <li><span class="check-icon">♡</span> Post 1 discussion prompt per day</li>
+          <li><span class="check-icon">♡</span> Use the Group to test content ideas</li>
+          <li><span class="check-icon">♡</span> Live videos inside Groups = enormous organic reach</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Facebook Ads 💰</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Boost top-performing organic posts ($5–$10/day)</li>
+          <li><span class="check-icon">♡</span> Retarget video viewers with follow-up offers</li>
+          <li><span class="check-icon">♡</span> Lookalike audiences based on email list</li>
+          <li><span class="check-icon">♡</span> Test 3 creatives simultaneously, kill losers after 48 hrs</li>
+        </ul></div>
+        <div class="card"><div class="card-label">FB Content Mix 🎀</div>
+          <div class="card-desc" style="margin-top:0.35rem"><strong>40%</strong> Educational/value posts<br><strong>25%</strong> Entertainment/relatable content<br><strong>20%</strong> Community/engagement posts<br><strong>15%</strong> Promotional CTAs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TIKTOK ══ -->
+    <div id="tiktok" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Fastest route to viral growth</div>
+        <div class="panel-title">🎵 TikTok <em>Playbook</em></div>
+        <div class="panel-sub">Master the For You Page and your content can reach millions — regardless of follower count.</div>
+      </div>
+      <div class="insight tt-ins"><strong>TikTok FYP Algorithm:</strong> Completion rate > Shares > Comments > Likes. If people watch to the end and rewatch, TikTok pushes it to more people. Loops are king.</div>
+      <div class="card-grid card-grid-2 section">
+        <div class="card"><div class="card-label">Growth Fundamentals ⚡</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Post 1–3× per day — TikTok rewards volume</li>
+          <li><span class="check-icon">♡</span> Keep videos under 30 sec for max completion rate</li>
+          <li><span class="check-icon">♡</span> Hook must appear in first 0–2 seconds</li>
+          <li><span class="check-icon">♡</span> Trending sounds within 48–72 hrs = wider FYP reach</li>
+          <li><span class="check-icon">♡</span> NEVER post IG watermarked videos</li>
+        </ul></div>
+        <div class="card"><div class="card-label">TikTok-Specific Formats ✨</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> <strong>Stitch:</strong> React to viral video in your niche</li>
+          <li><span class="check-icon">♡</span> <strong>Duet:</strong> Side-by-side collab with creators</li>
+          <li><span class="check-icon">♡</span> <strong>Series:</strong> Multi-part content drives return viewers</li>
+          <li><span class="check-icon">♡</span> <strong>TikTok Live:</strong> At 1K+ — massive organic visibility</li>
+          <li><span class="check-icon">♡</span> <strong>Green Screen:</strong> Authority content format</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Cross-Posting ♻️</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Crosspost to IG Reels (remove TikTok watermark)</li>
+          <li><span class="check-icon">♡</span> Save to YouTube Shorts</li>
+          <li><span class="check-icon">♡</span> Pin your best TikTok to Pinterest as video pin</li>
+          <li><span class="check-icon">♡</span> Repurpose top TikToks to Facebook Reels</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Hashtag Strategy 🏷️</div><div class="card-desc" style="margin-top:0.35rem">Use: <strong>1–2 niche hashtags</strong> (under 500M views) + <strong>1–2 mid hashtags</strong> (500M–1B views) + <strong>1 broad hashtag</strong> (#fyp). Limit to 3–5 total. Relevance > volume.</div></div>
+      </div>
+    </div>
+
+    <!-- ══ YOUTUBE ══ -->
+    <div id="youtube" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow" style="color:#FF8899">✦ The #2 search engine in the world</div>
+        <div class="panel-title" style="color:#FF8899">▶️ YouTube <span style="color:var(--text)">Playbook</span></div>
+        <div class="panel-sub">Your long-game authority builder — content ranks for years on YouTube and Google.</div>
+      </div>
+      <div class="insight yt-ins"><strong>YouTube Algorithm:</strong> CTR + Watch time = distribution. A great thumbnail gets the click. Great content keeps them watching. Both are mandatory.</div>
+      <div class="card-grid card-grid-2 section">
+        <div class="card"><div class="card-label">Channel Setup ✨</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Channel art: communicate your niche in 5 words</li>
+          <li><span class="check-icon">♡</span> Channel trailer: 60–90 sec "why subscribe" video</li>
+          <li><span class="check-icon">♡</span> 3–4 playlists organized by subtopic from day one</li>
+          <li><span class="check-icon">♡</span> Keywords in: channel name, about, titles, descriptions</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Thumbnail & Title Formula 🎨</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Thumbnail: face + bold 3–4 word text + contrast colors</li>
+          <li><span class="check-icon">♡</span> Title: [Keyword] + [Benefit/Curiosity] under 60 chars</li>
+          <li><span class="check-icon">♡</span> A/B test thumbnails via YouTube Studio</li>
+          <li><span class="check-icon">♡</span> Target 6–10% CTR (over 10% = viral potential)</li>
+        </ul></div>
+        <div class="card"><div class="card-label">YouTube SEO 🔍</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Research keywords in YouTube Search autocomplete</li>
+          <li><span class="check-icon">♡</span> VidIQ or TubeBuddy free tiers for keyword volume</li>
+          <li><span class="check-icon">♡</span> Put main keyword in first 25 words of description</li>
+          <li><span class="check-icon">♡</span> Add chapters — increases watch time and SEO</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Shorts Strategy ⚡</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Shorts get shown to non-subscribers — great for discovery</li>
+          <li><span class="check-icon">♡</span> Post 3–5 Shorts/week to grow before long-form</li>
+          <li><span class="check-icon">♡</span> Repurpose TikToks and IG Reels as Shorts</li>
+          <li><span class="check-icon">♡</span> Use Shorts to tease upcoming long-form videos</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- ══ PINTEREST ══ -->
+    <div id="pinterest" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow" style="color:#FF6677">✦ Most underrated platform</div>
+        <div class="panel-title" style="color:#FF6677">📌 Pinterest <span style="color:var(--text)">Playbook</span></div>
+        <div class="panel-sub">Pinterest drives evergreen traffic for months and years. The gift that keeps on giving. 🌸</div>
+      </div>
+      <div class="insight pin-ins"><strong>Pinterest's superpower:</strong> Unlike IG/TikTok posts that die in 24–48 hours, Pinterest pins generate traffic for 6+ months. One great pin = thousands of website visits over its lifetime.</div>
+      <div class="card-grid card-grid-2 section">
+        <div class="card"><div class="card-label">Profile & Board Setup 🌷</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Profile name: [Your Name] | [Primary Keyword]</li>
+          <li><span class="check-icon">♡</span> Create 8–12 boards before pinning</li>
+          <li><span class="check-icon">♡</span> Board names: exact keywords (not creative names)</li>
+          <li><span class="check-icon">♡</span> Enable Rich Pins (verifies your website)</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Pin Design 🎨</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Vertical ratio: 2:3 (1000×1500px) performs best</li>
+          <li><span class="check-icon">♡</span> Bold title text on the pin image</li>
+          <li><span class="check-icon">♡</span> Consistent branding: your brand colors in Canva</li>
+          <li><span class="check-icon">♡</span> Create 3–5 pin designs for the same content (A/B test)</li>
+          <li><span class="check-icon">♡</span> Video pins (under 60 sec) are favored in feed</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Pinning Schedule 📅</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Pin 10–15× per day minimum — use Tailwind</li>
+          <li><span class="check-icon">♡</span> Best times: evenings and weekends</li>
+          <li><span class="check-icon">♡</span> Mix: 20% your content + 80% repinned content</li>
+          <li><span class="check-icon">♡</span> Don't delete pins — every pin = backlink to your site</li>
+        </ul></div>
+        <div class="card"><div class="card-label">Traffic Loop 🔄</div>
+          <div class="card-desc" style="margin-top:0.35rem"><strong>Step 1:</strong> Write a blog post on a keyword your audience searches.<br><br><strong>Step 2:</strong> Create 5 pin designs for that post.<br><br><strong>Step 3:</strong> Pin one per day to relevant boards.<br><br><strong>Step 4:</strong> Blog post has an email opt-in.<br><br><strong>Result:</strong> Pinterest → Blog → Email list 💌</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ AI GENERATOR ══ -->
+    <div id="generator" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Powered by Claude AI</div>
+        <div class="panel-title">✨ AI Content <em>Generator</em></div>
+        <div class="panel-sub">Describe your content idea, pick your platforms, get a complete ready-to-post package in seconds. 💅</div>
+      </div>
+      <div id="gen-form-area">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;">
+            <div><label class="field-label">Content Topic / Title ✨ *</label><input id="g-topic" type="text" class="field-input" placeholder="e.g. 5 Instagram Reels ideas for beginners"></div>
+            <div><label class="field-label">Content Type *</label>
+              <select id="g-type" class="field-select">
+                <option value="">— Select type —</option>
+                <option>Educational / Tips & Tricks</option>
+                <option>Viral / Entertainment</option>
+                <option>Inspirational / Motivational</option>
+                <option>Product / Service Promotion</option>
+                <option>Behind the Scenes</option>
+                <option>Trending / Timely Topic</option>
+                <option>Community Engagement</option>
+                <option>Story / Case Study</option>
+                <option>Tutorial / How-to</option>
+                <option>Announcement / Launch</option>
+                <option>Collaboration / Collab Post</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;">
+            <div><label class="field-label">Your Niche / Industry 🌸</label><input id="g-niche" type="text" class="field-input" placeholder="e.g. Fitness, Beauty, Finance, Travel…"></div>
+            <div><label class="field-label">Target Audience 💕</label><input id="g-audience" type="text" class="field-input" placeholder="e.g. Millennial women into wellness"></div>
+          </div>
+          <div style="margin-bottom:1.25rem;">
+            <label class="field-label">Key Details 📝</label>
+            <textarea id="g-details" class="field-textarea" placeholder="Add specifics: stats, personal stories, CTAs, tone notes, anything you want included…"></textarea>
+          </div>
+          <div style="margin-bottom:1.25rem;">
+            <label class="field-label">Tone / Vibe 🎀</label>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;" id="tone-sel">
+              <label class="channel-chip sel-primary" data-t="energetic and hype-driven" onclick="selTone(this)">🔥 Energetic</label>
+              <label class="channel-chip" data-t="educational and authoritative" onclick="selTone(this)">🎓 Educational</label>
+              <label class="channel-chip" data-t="warm, conversational and relatable" onclick="selTone(this)">🤝 Conversational</label>
+              <label class="channel-chip" data-t="inspirational and emotionally resonant" onclick="selTone(this)">✨ Inspirational</label>
+              <label class="channel-chip" data-t="witty, playful and humorous" onclick="selTone(this)">😄 Playful</label>
+              <label class="channel-chip" data-t="urgent, bold and action-driving" onclick="selTone(this)">⚡ Urgent</label>
+              <label class="channel-chip" data-t="professional and trust-building" onclick="selTone(this)">💼 Professional</label>
+            </div>
+          </div>
+          <div style="margin-bottom:1.75rem;">
+            <label class="field-label">Generate Content For 💅</label>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;" id="ch-sel">
+              <label class="channel-chip sel-ig" data-c="ig" onclick="togCh(this)">📸 IG Reel Script</label>
+              <label class="channel-chip sel-ig" data-c="ig-cap" onclick="togCh(this)">📝 IG Caption</label>
+              <label class="channel-chip sel-ig" data-c="ig-stories" onclick="togCh(this)">💬 IG Stories</label>
+              <label class="channel-chip sel-fb" data-c="fb" onclick="togCh(this)">👥 Facebook Post</label>
+              <label class="channel-chip sel-tt" data-c="tt" onclick="togCh(this)">🎵 TikTok Script</label>
+              <label class="channel-chip sel-yt" data-c="yt" onclick="togCh(this)">▶️ YouTube Description</label>
+              <label class="channel-chip sel-pin" data-c="pin" onclick="togCh(this)">📌 Pinterest Pins</label>
+              <label class="channel-chip" data-c="email" onclick="togCh(this)">📧 Email Newsletter</label>
+              <label class="channel-chip" data-c="sms" onclick="togCh(this)">📲 SMS Blast</label>
+              <label class="channel-chip" data-c="hooks" onclick="togCh(this)">🎣 5 Hook Variations</label>
+            </div>
+          </div>
+          <div id="g-err" style="display:none;background:var(--red-light);border:1px solid rgba(255,68,102,0.3);border-radius:var(--radius-sm);padding:0.75rem 1rem;font-size:0.83rem;color:var(--red);margin-bottom:1rem;">🌸 Please fill in the Content Topic, select a Type, and pick at least one channel.</div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <button id="g-btn" class="btn-primary" onclick="genContent()"><span id="g-icon">✨</span> <span id="g-txt">GENERATE CONTENT</span></button>
+            <div id="g-status" style="display:none;font-size:0.81rem;color:var(--text-3);align-items:center;gap:0.4rem;">
+              <span style="animation:spin 1s linear infinite;display:inline-block;">🌸</span> Creating your content package…
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="g-output" style="display:none;margin-top:2rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:0.75rem;">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--text);">🌸 Your Content Package is Ready!</div>
+          <button onclick="document.getElementById('g-output').style.display='none'" class="btn-secondary">↩ Generate New</button>
+        </div>
+        <div id="g-blocks"></div>
+      </div>
+    </div>
+
+    <!-- ══ ACCOUNT HEALTH ══ -->
+    <div id="health" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Weekly check-in</div>
+        <div class="panel-title">💗 Account <em>Health Tracker</em></div>
+        <div class="panel-sub">Log your weekly metrics across all 5 platforms. Get AI-powered recommendations every Monday.</div>
+      </div>
+      <div class="alert-box"><strong>💌 Update every Monday.</strong> Pull your numbers from each platform's native analytics. Log them here — history saves automatically in your browser.</div>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('health-tabs','ig-health')">📸 Instagram</button>
+        <button class="tab" onclick="showTab('health-tabs','fb-health')">👥 Facebook</button>
+        <button class="tab" onclick="showTab('health-tabs','tt-health')">🎵 TikTok</button>
+        <button class="tab" onclick="showTab('health-tabs','yt-health')">▶️ YouTube</button>
+        <button class="tab" onclick="showTab('health-tabs','pin-health')">📌 Pinterest</button>
+      </div>
+
+      <!-- IG -->
+      <div id="health-tabs-ig-health" class="tab-panel active">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.75rem;">
+            <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#FF6FA3;">📸 Instagram Weekly Metrics</div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+              <input type="date" id="ig-date" class="field-input" style="width:165px;padding:0.5rem 0.85rem;">
+              <button class="btn-primary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="saveHealth('ig')">💾 Save</button>
+              <button class="btn-secondary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="analyzeHealth('ig')">✨ AI Analysis</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:0.9rem;margin-bottom:1.1rem;">
+            <div class="health-kpi"><div class="health-kpi-label">Followers</div><input class="health-kpi-input" id="ig-followers" type="number" placeholder="0"><div class="health-kpi-sub">Total count</div></div>
+            <div class="health-kpi"><div class="health-kpi-label">Follower Change</div><input class="health-kpi-input" id="ig-fchange" type="number" placeholder="+0"><div class="health-kpi-sub">vs last week</div></div>
+            <div class="health-kpi"><div class="health-kpi-label">Posts / Reels</div><input class="health-kpi-input" id="ig-posts" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Reach</div><input class="health-kpi-input" id="ig-reach" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Impressions</div><input class="health-kpi-input" id="ig-impressions" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Profile Visits</div><input class="health-kpi-input" id="ig-pvisits" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Link Taps</div><input class="health-kpi-input" id="ig-linktaps" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Saves</div><input class="health-kpi-input" id="ig-saves" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Best Reel Views</div><input class="health-kpi-input" id="ig-reelviews" type="number" placeholder="0"></div>
+          </div>
+          <div><label class="field-label">Notes 🌸</label><textarea id="ig-notes" class="field-textarea" style="min-height:60px;" placeholder="What worked? What flopped? Any observations…"></textarea></div>
+          <div id="ig-save-msg" style="display:none;font-size:0.82rem;color:var(--mint);font-weight:700;margin-top:0.6rem;"></div>
+        </div>
+      </div>
+
+      <!-- FB -->
+      <div id="health-tabs-fb-health" class="tab-panel">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.75rem;">
+            <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#7AAEFF;">👥 Facebook Weekly Metrics</div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+              <input type="date" id="fb-date" class="field-input" style="width:165px;padding:0.5rem 0.85rem;">
+              <button class="btn-primary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="saveHealth('fb')">💾 Save</button>
+              <button class="btn-secondary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="analyzeHealth('fb')">✨ AI Analysis</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:0.9rem;margin-bottom:1.1rem;">
+            <div class="health-kpi"><div class="health-kpi-label">Page Likes</div><input class="health-kpi-input" id="fb-likes" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">New Likes</div><input class="health-kpi-input" id="fb-newlikes" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Reach</div><input class="health-kpi-input" id="fb-reach" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Engagements</div><input class="health-kpi-input" id="fb-eng" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Posts Published</div><input class="health-kpi-input" id="fb-posts" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Video Views</div><input class="health-kpi-input" id="fb-views" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Group Members</div><input class="health-kpi-input" id="fb-group" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Link Clicks</div><input class="health-kpi-input" id="fb-clicks" type="number" placeholder="0"></div>
+          </div>
+          <div><label class="field-label">Notes 🌸</label><textarea id="fb-notes" class="field-textarea" style="min-height:60px;" placeholder="What worked? Ad results? Community wins?"></textarea></div>
+          <div id="fb-save-msg" style="display:none;font-size:0.82rem;color:var(--mint);font-weight:700;margin-top:0.6rem;"></div>
+        </div>
+      </div>
+
+      <!-- TT -->
+      <div id="health-tabs-tt-health" class="tab-panel">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.75rem;">
+            <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--text);">🎵 TikTok Weekly Metrics</div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+              <input type="date" id="tt-date" class="field-input" style="width:165px;padding:0.5rem 0.85rem;">
+              <button class="btn-primary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="saveHealth('tt')">💾 Save</button>
+              <button class="btn-secondary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="analyzeHealth('tt')">✨ AI Analysis</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:0.9rem;margin-bottom:1.1rem;">
+            <div class="health-kpi"><div class="health-kpi-label">Followers</div><input class="health-kpi-input" id="tt-followers" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">New Followers</div><input class="health-kpi-input" id="tt-newfollowers" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Video Views</div><input class="health-kpi-input" id="tt-views" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Profile Views</div><input class="health-kpi-input" id="tt-pviews" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Likes</div><input class="health-kpi-input" id="tt-likes" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Comments</div><input class="health-kpi-input" id="tt-comments" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Shares</div><input class="health-kpi-input" id="tt-shares" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Top Video Views</div><input class="health-kpi-input" id="tt-topvid" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Avg Watch Time</div><input class="health-kpi-input" id="tt-watchtime" type="text" placeholder="e.g. 8s"></div>
+          </div>
+          <div><label class="field-label">Notes 🌸</label><textarea id="tt-notes" class="field-textarea" style="min-height:60px;" placeholder="Best video, trending audio, duets/stitches…"></textarea></div>
+          <div id="tt-save-msg" style="display:none;font-size:0.82rem;color:var(--mint);font-weight:700;margin-top:0.6rem;"></div>
+        </div>
+      </div>
+
+      <!-- YT -->
+      <div id="health-tabs-yt-health" class="tab-panel">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.75rem;">
+            <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#FF8899;">▶️ YouTube Weekly Metrics</div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+              <input type="date" id="yt-date" class="field-input" style="width:165px;padding:0.5rem 0.85rem;">
+              <button class="btn-primary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="saveHealth('yt')">💾 Save</button>
+              <button class="btn-secondary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="analyzeHealth('yt')">✨ AI Analysis</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:0.9rem;margin-bottom:1.1rem;">
+            <div class="health-kpi"><div class="health-kpi-label">Subscribers</div><input class="health-kpi-input" id="yt-subs" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">New Subs</div><input class="health-kpi-input" id="yt-newsubs" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Views</div><input class="health-kpi-input" id="yt-views" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Watch Time (hrs)</div><input class="health-kpi-input" id="yt-watchtime" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Avg View Duration</div><input class="health-kpi-input" id="yt-avd" type="text" placeholder="e.g. 4:30"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Impressions CTR</div><input class="health-kpi-input" id="yt-ctr" type="text" placeholder="e.g. 5.2%"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Videos Published</div><input class="health-kpi-input" id="yt-published" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Top Video Views</div><input class="health-kpi-input" id="yt-topvid" type="number" placeholder="0"></div>
+          </div>
+          <div><label class="field-label">Notes 🌸</label><textarea id="yt-notes" class="field-textarea" style="min-height:60px;" placeholder="CTR, Shorts vs long-form, SEO wins…"></textarea></div>
+          <div id="yt-save-msg" style="display:none;font-size:0.82rem;color:var(--mint);font-weight:700;margin-top:0.6rem;"></div>
+        </div>
+      </div>
+
+      <!-- PIN -->
+      <div id="health-tabs-pin-health" class="tab-panel">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.75rem;">
+            <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#FF6677;">📌 Pinterest Weekly Metrics</div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+              <input type="date" id="pin-date" class="field-input" style="width:165px;padding:0.5rem 0.85rem;">
+              <button class="btn-primary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="saveHealth('pin')">💾 Save</button>
+              <button class="btn-secondary" style="padding:0.55rem 1.25rem;font-size:0.82rem;" onclick="analyzeHealth('pin')">✨ AI Analysis</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:0.9rem;margin-bottom:1.1rem;">
+            <div class="health-kpi"><div class="health-kpi-label">Monthly Views</div><input class="health-kpi-input" id="pin-mviews" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Followers</div><input class="health-kpi-input" id="pin-followers" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Impressions</div><input class="health-kpi-input" id="pin-impressions" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Engagements</div><input class="health-kpi-input" id="pin-eng" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Outbound Clicks</div><input class="health-kpi-input" id="pin-clicks" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Pins Published</div><input class="health-kpi-input" id="pin-pins" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Top Pin Saves</div><input class="health-kpi-input" id="pin-topsaves" type="number" placeholder="0"></div>
+            <div class="health-kpi"><div class="health-kpi-label">Save Rate</div><input class="health-kpi-input" id="pin-saverate" type="text" placeholder="e.g. 2.1%"></div>
+          </div>
+          <div><label class="field-label">Notes 🌸</label><textarea id="pin-notes" class="field-textarea" style="min-height:60px;" placeholder="Top boards, best pin designs, keyword wins…"></textarea></div>
+          <div id="pin-save-msg" style="display:none;font-size:0.82rem;color:var(--mint);font-weight:700;margin-top:0.6rem;"></div>
+        </div>
+      </div>
+
+      <div id="h-ai-out" style="display:none;margin-top:1.5rem;">
+        <div class="section-title">✨ AI Platform Analysis</div>
+        <div id="h-ai-status" style="text-align:center;padding:2.5rem;color:var(--text-3);">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem;">🌸</div>
+          Analyzing your metrics, babe — just a moment…
+          <div class="loading-dots"><span></span><span></span><span></span></div>
+        </div>
+        <div id="h-ai-content" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;font-size:0.84rem;line-height:1.9;color:var(--text-2);white-space:pre-wrap;display:none;box-shadow:var(--shadow-sm);"></div>
+        <div id="h-ai-actions" style="display:none;margin-top:0.75rem;gap:0.6rem;">
+          <button onclick="copyHAI()" class="btn-secondary" style="font-size:0.78rem;padding:0.45rem 1rem;">📋 Copy Analysis</button>
+          <button onclick="document.getElementById('h-ai-out').style.display='none'" class="btn-secondary" style="font-size:0.78rem;padding:0.45rem 1rem;">✕ Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ REPURPOSE ══ -->
+    <div id="repurpose" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Work smarter, not harder</div>
+        <div class="panel-title">♻️ Repurpose <em>Engine</em></div>
+        <div class="panel-sub">Create content once. Distribute everywhere. The most efficient social managers live by this. 💅</div>
+      </div>
+      <div class="alert-box alert-green"><strong>💡 The Repurpose Rule:</strong> Every piece of content should appear on at least 3 platforms. One YouTube video = 10+ pieces. Let's work smart, babe.</div>
+      <div class="section">
+        <div class="section-title">🔄 The Repurpose Matrix</div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Source Content</th><th>→ Instagram</th><th>→ Facebook</th><th>→ TikTok</th><th>→ YouTube</th><th>→ Pinterest</th></tr></thead>
+            <tbody>
+              <tr><td><strong>YouTube Video (10+ min)</strong></td><td>3 Reels (best moments) + Carousel</td><td>Shared video + insight post</td><td>3 TikToks (different hooks)</td><td>✦ Source</td><td>Infographic + video pin trailer</td></tr>
+              <tr><td><strong>Instagram Carousel</strong></td><td>✦ Source</td><td>Each slide as separate post</td><td>Screen-record swiping through</td><td>Short: talk through the points</td><td>Pin each slide (10 pins from 1 post!)</td></tr>
+              <tr><td><strong>TikTok Video</strong></td><td>Reel (remove TT watermark)</td><td>Native Facebook Reel</td><td>✦ Source</td><td>YouTube Short</td><td>Video Pin</td></tr>
+              <tr><td><strong>Blog Post</strong></td><td>Carousel: top 5 points</td><td>Post with excerpt + link</td><td>"I wrote about [topic] — key takeaway"</td><td>Long-form walkthrough</td><td>5–10 pins linking to post</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">✨ 1 Piece → 10+ Posts Workflow</div>
+        <div class="card-grid card-grid-2">
+          <div class="card"><div class="card-label">Step 1 🎬 Create the Anchor</div><div class="card-desc">Record a 10–15 min YouTube video OR write a detailed blog post. Batch record 4 anchors in one session per month.</div></div>
+          <div class="card"><div class="card-label">Step 2 ✂️ Extract Short-Form</div><div class="card-desc">Pull 3 "golden moments" for Reels/TikToks. Write a carousel from the main points. Create a Stories Q&A. = 5–6 pieces from 1 video.</div></div>
+          <div class="card"><div class="card-label">Step 3 📌 Pinterest Amplify</div><div class="card-desc">Design 5 pin covers for the same blog post. Pin one per day across relevant boards. = 5 more posts, lasting months.</div></div>
+          <div class="card"><div class="card-label">Step 4 👥 Facebook Repackage</div><div class="card-desc">Share video natively. Post carousel slides individually. Create a Group discussion thread. = 3 more posts, zero new creation.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TRENDS ══ -->
+    <div id="trends" class="panel">
+      <div class="panel-header">
+        <div class="panel-eyebrow">✦ Stay ahead of the curve</div>
+        <div class="panel-title">📈 Trend <em>Tracker</em></div>
+        <div class="panel-sub">How to monitor what's trending on each platform and use trends to grow faster. 🌸</div>
+      </div>
+      <div class="card-grid card-grid-2 section">
+        <div class="card"><div class="card-label" style="color:#FF6FA3">📸 Instagram Trends</div><ul class="checklist">
+          <li><span class="check-icon">♡</span> Check Reels Explore tab daily for trending audio</li>
+            <li><span class="check-icon">♡</span> Use trending audio within 48–72 hrs of spotting it</li>
+            <li><span class="check-icon">♡</span> Monitor Creator accounts in your niche for format trends</li>
+            <li><span class="check-icon">♡</span> Instagram's "Reels Templates" feature shows viral formats</li>
+          </ul></div>
+          <div class="card"><div class="card-label" style="color:var(--tt)">🎵 TikTok Trends</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> TikTok Creative Center → trending sounds & hashtags</li>
+            <li><span class="check-icon">♡</span> TikTok Discover page — refresh 2× daily</li>
+            <li><span class="check-icon">♡</span> Follow 10 top creators in your niche to spot formats early</li>
+            <li><span class="check-icon">♡</span> Trending sounds on TikTok → next week's IG Reels gold</li>
+          </ul></div>
+          <div class="card"><div class="card-label" style="color:#FF8899">▶️ YouTube Trends</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> YouTube Trending tab (filtered by category)</li>
+            <li><span class="check-icon">♡</span> VidIQ Trending tool — free tier available</li>
+            <li><span class="check-icon">♡</span> Search your niche keyword, sort by "This week"</li>
+            <li><span class="check-icon">♡</span> Google Trends → filter to YouTube Search</li>
+          </ul></div>
+          <div class="card"><div class="card-label" style="color:#FF6677">📌 Pinterest Trends</div><ul class="checklist">
+            <li><span class="check-icon">♡</span> Pinterest Trends tool: trends.pinterest.com</li>
+            <li><span class="check-icon">♡</span> Seasonal peaks: plan content 45 days AHEAD</li>
+            <li><span class="check-icon">♡</span> "Today's Inspiration" tab shows rising topics</li>
+            <li><span class="check-icon">♡</span> Check "Monthly searches" in Pinterest autocomplete</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const panel = document.getElementById(id);
+  if (panel) panel.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + id + "'")) {
+      n.classList.add('active');
+    }
+  });
+}
+
+function showTab(group, tabId) {
+  // Hide all tab panels in this group
+  document.querySelectorAll('[id^="' + group + '-"]').forEach(p => p.classList.remove('active'));
+  // Deactivate all tabs in parent
+  const activePanel = document.getElementById(tabId.replace(group + '-', '') + '-' + group) || document.getElementById(group + '-' + tabId);
+  // Find sibling tabs
+  const target = document.getElementById(group + '-' + tabId);
+  if (target) {
+    target.classList.add('active');
+  }
+  // Update tab buttons — find the closest .tabs container
+  const allTabGroups = document.querySelectorAll('.tabs');
+  allTabGroups.forEach(tabGroup => {
+    const buttons = tabGroup.querySelectorAll('.tab');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'" + tabId + "'")) {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    });
+  });
+}
+
+// Tone selector
+let selectedTone = 'energetic and hype-driven';
+function selTone(el) {
+  document.querySelectorAll('#tone-sel .channel-chip').forEach(c => {
+    c.className = 'channel-chip';
+  });
+  el.classList.add('sel-primary');
+  selectedTone = el.dataset.t;
+}
+
+// Channel toggles — track selected channels
+const selectedChannels = new Set(['ig','ig-cap','ig-stories','fb','tt','yt','pin']);
+function togCh(el) {
+  const c = el.dataset.c;
+  const classMap = {
+    ig: 'sel-ig', 'ig-cap': 'sel-ig', 'ig-stories': 'sel-ig',
+    fb: 'sel-fb', tt: 'sel-tt', yt: 'sel-yt', pin: 'sel-pin',
+    email: 'sel-primary', sms: 'sel-primary', hooks: 'sel-primary'
+  };
+  if (selectedChannels.has(c)) {
+    selectedChannels.delete(c);
+    el.className = 'channel-chip';
+  } else {
+    selectedChannels.add(c);
+    el.classList.add(classMap[c] || 'sel-primary');
+  }
+}
+
+async function genContent() {
+  const topic = document.getElementById('g-topic').value.trim();
+  const type = document.getElementById('g-type').value;
+  const niche = document.getElementById('g-niche').value.trim();
+  const audience = document.getElementById('g-audience').value.trim();
+  const details = document.getElementById('g-details').value.trim();
+  const errEl = document.getElementById('g-err');
+
+  if (!topic || !type || selectedChannels.size === 0) {
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('g-btn');
+  const status = document.getElementById('g-status');
+  btn.disabled = true;
+  document.getElementById('g-txt').textContent = 'GENERATING…';
+  status.style.display = 'flex';
+
+  const channelLabels = {
+    ig: 'Instagram Reel Script', 'ig-cap': 'Instagram Caption', 'ig-stories': 'Instagram Stories sequence',
+    fb: 'Facebook Post', tt: 'TikTok Script', yt: 'YouTube Video Description',
+    pin: '3 Pinterest Pin titles + descriptions', email: 'Email Newsletter', sms: 'SMS Blast', hooks: '5 Hook Variations'
+  };
+  const channels = [...selectedChannels].map(c => channelLabels[c] || c).join(', ');
+
+  const prompt = `You are an expert social media content strategist. Create ready-to-post content for the following:
+
+Topic: ${topic}
+Content Type: ${type}
+Niche: ${niche || 'General'}
+Audience: ${audience || 'General audience'}
+Tone: ${selectedTone}
+Additional details: ${details || 'None'}
+
+Generate the following content pieces (clearly label each section with the platform name):
+${channels}
+
+For each piece:
+- Make it platform-native and optimized for that platform's algorithm
+- Include relevant emojis, CTAs, and hashtags where appropriate
+- Match the specified tone throughout
+- Keep scripts punchy and hook-driven
+- For Instagram Reels/TikTok scripts: include [HOOK], [BODY], [CTA] labels
+
+Format each section with a clear header like: === INSTAGRAM REEL SCRIPT ===`;
+
+  try {
+    const res = await fetch('/api/claude', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: [{ role: 'user', content: prompt }] })
+    });
+    const data = await res.json();
+    const text = data.content.map(i => i.text || '').join('');
+
+    // Parse sections
+    const sections = text.split(/===\s*(.+?)\s*===/g).filter(Boolean);
+    const blocks = document.getElementById('g-blocks');
+    blocks.innerHTML = '';
+
+    if (sections.length <= 1) {
+      // No headers — show as one block
+      blocks.innerHTML = `<div class="content-block">
+        <div class="content-block-header">
+          <div class="content-block-label">✨ Generated Content</div>
+          <button class="copy-btn" onclick="copyText(this, \`${text.replace(/`/g,'\\`')}\`)">Copy</button>
+        </div>
+        <div class="content-block-body">${text}</div>
+      </div>`;
+    } else {
+      for (let i = 0; i < sections.length - 1; i += 2) {
+        const title = sections[i];
+        const content = sections[i + 1]?.trim() || '';
+        const safe = content.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const copyContent = content.replace(/`/g, '\\`').replace(/\\/g, '\\\\');
+        blocks.innerHTML += `<div class="content-block">
+          <div class="content-block-header">
+            <div class="content-block-label">✨ ${title}</div>
+            <button class="copy-btn" onclick="copyText(this, \`${copyContent}\`)">Copy</button>
+          </div>
+          <div class="content-block-body">${safe}</div>
+        </div>`;
+      }
+    }
+
+    document.getElementById('g-output').style.display = 'block';
+    document.getElementById('g-output').scrollIntoView({ behavior: 'smooth' });
+  } catch (e) {
+    alert('Something went wrong 🌸 Please try again.');
+  }
+
+  btn.disabled = false;
+  document.getElementById('g-txt').textContent = 'GENERATE CONTENT';
+  status.style.display = 'none';
+}
+
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+
+// Health data (in-memory)
+const healthData = {};
+
+function saveHealth(platform) {
+  const fields = document.querySelectorAll(`[id^="${platform}-"]`);
+  const data = {};
+  fields.forEach(f => { if (f.tagName === 'INPUT' || f.tagName === 'TEXTAREA') data[f.id] = f.value; });
+  healthData[platform] = data;
+  const msg = document.getElementById(`${platform}-save-msg`);
+  msg.textContent = '✓ Saved for this session!';
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 3000);
+}
+
+async function analyzeHealth(platform) {
+  const data = healthData[platform] || {};
+  const out = document.getElementById('h-ai-out');
+  const status = document.getElementById('h-ai-status');
+  const content = document.getElementById('h-ai-content');
+  const actions = document.getElementById('h-ai-actions');
+
+  out.style.display = 'block';
+  status.style.display = 'block';
+  content.style.display = 'none';
+  actions.style.display = 'none';
+  out.scrollIntoView({ behavior: 'smooth' });
+
+  const metrics = Object.entries(data).map(([k,v]) => `${k}: ${v}`).join('\n');
+  const prompt = `You are a social media growth expert. Analyze these ${platform.toUpperCase()} metrics for the week and give specific, actionable recommendations:
+
+${metrics || 'No metrics entered yet — give general best practices for this platform.'}
+
+Provide:
+1. Quick performance summary (2–3 sentences)
+2. Top 3 wins this week (or things that look healthy)
+3. Top 3 areas to improve with specific action steps
+4. One bold growth move to try next week
+5. A motivating sign-off 🌸
+
+Keep it concise, warm, and actionable. Use emojis. Format clearly.`;
+
+  try {
+    const res = await fetch('/api/claude', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: [{ role: 'user', content: prompt }] })
+    });
+    const d = await res.json();
+    const text = d.content.map(i => i.text || '').join('');
+    content.textContent = text;
+    status.style.display = 'none';
+    content.style.display = 'block';
+    actions.style.display = 'flex';
+  } catch (e) {
+    status.textContent = 'Something went wrong 🌸 Please try again.';
+  }
+}
+
+function copyHAI() {
+  const text = document.getElementById('h-ai-content').textContent;
+  navigator.clipboard.writeText(text);
+}
+
+// Set today's date on all date inputs
+document.querySelectorAll('input[type="date"]').forEach(d => {
+  d.value = new Date().toISOString().split('T')[0];
+});
+</script>
+</body>
+</html>
